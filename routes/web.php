@@ -45,5 +45,7 @@ Route::middleware('auth')->group(function(){
     Route::match(['put', 'patch'], '/books/{id}',[BookController::class, 'update'])->name('book.update');
     Route::delete('/books/{id}',[BookController::class, 'destroy'])->name('book.destroy');
     Route::get('/book/print', [BookController::class, 'print'])->name('book.print');
+    Route::get('/books/export', [BookController::class, 'export'])->name('book.export');
+    Route::post('/books/import', [BookController::class, 'import'])->name('book.import');
 });
 require __DIR__.'/auth.php';
