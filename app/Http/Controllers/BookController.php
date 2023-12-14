@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Bookshelf;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -108,5 +109,12 @@ class BookController extends Controller
         );
 
         return redirect()->route('books')->with($notification);
+    }
+
+    public function print()
+    {
+        $data['books'] = Book::all();
+        $pdf = Pdf::loadView('books.print', $data);
+        return $pdf->stream('books.pdf');
     }
 }

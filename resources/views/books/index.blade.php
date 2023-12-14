@@ -10,6 +10,7 @@
             <div class="bg-gray light:bg-gray-800 overflowhidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-black dark:text-white">
                 <x-primary-button tag="a" href="{{route('book.create')}}"> Tambah Data Buku</x-primary-button>
+                <x-primary-button tag="a" href="{{ route('book.print')}}" target='blank'>Cetak Buku</x-primary-button>
                 <br/><br/>
                     <x-table>
                         <x-slot name="header">
